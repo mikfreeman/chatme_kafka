@@ -1,27 +1,26 @@
 'use strict';
 
 angular.module('chatme.services', [])
-    .factory('chatService', [function() {
-      var githubUrl = 'https://api.github.com',
-          githubUsername;
-
-      var runUserRequest = function(path) {
-        // Return the promise from the $http service
-        // that calls the Github API using JSONP
-        return $http({
-          method: 'JSONP',
-          url: githubUrl + '/users/' +
-                githubUsername + '/' +
-                path + '?callback=JSON_CALLBACK'
-        });
-      };
-
-      return {
-        events: function() {
-          return runUserRequest('events');
-        },
-        setUsername: function(username) {
-          githubUsername = username;
+.factory('chatService', [function($rootscope) {
+ var socket = io.connect();
+ return {
+  on: function (eventName, callback) {
+    socket.on(eventName, function () {  
+      var args = arguments;
+      $rootScope.$apply(function () {
+        callback.apply(socket, args);
+      });
+    });
+  },
+  emit: function (eventName, data, callback) {
+    socket.emit(eventName, data, function () {
+      var args = arguments;
+      $rootScope.$apply(function () {
+        if (callback) {
+          callback.apply(socket, args);
         }
-      };
-    }]);
+      });
+    })
+  }
+};  
+}]);
