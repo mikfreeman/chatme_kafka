@@ -1,0 +1,16 @@
+Chatme
+============
+
+A NodeJs chat server that uses web sockets for a real time chat experience.
+
+Setup
+============
+
+Install NodeJs from http://nodejs.org/
+cd chatme
+npm install
+node server.js
+open two browser windows at localhost:3000
+Start chatting.
+
+
