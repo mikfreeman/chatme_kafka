@@ -7,15 +7,32 @@ angular.module('chatme.controllers')
 
       	$scope.messages = [];
 
+      	var currentRoom = 'Lobby';
+
+      	$scope.sendChatMessage = function() {
+      		if($scope.chatMessage) {
+
+      			var message = {
+      				room : currentRoom,
+  					text : $scope.chatMessage
+      			};
+
+      			chatService.emit('message', message);
+				$scope.messages.push(message);      			
+  				$scope.chatMessage = '';
+      		}
+      	};
+
         chatService.on('connected', function(message) {
-          $scope.messages.push(message);
+        	$scope.messages.push(message);
         });
 
         chatService.on('message', function(message) {
-          $scope.messages.push(message);
+        	$scope.messages.push(message);
         });
 
         chatService.on('roomJoined', function(room) {
-          $scope.messages.push({text : 'Welcome to : ' + room});
+        	currentRoom = room;
+         	$scope.messages.push({text : 'Welcome to : ' + room});
         });
   }]);

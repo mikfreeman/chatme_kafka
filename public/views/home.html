@@ -11,8 +11,9 @@
     </div>
     <form class="form-inline" role="form">
       <div class="form-group">
-        <input type="text" class="form-control" id="message" placeholder="Chat ..."/>
+        <input ng-model="chatMessage" type="text" class="form-control" id="message" placeholder="Chat ..."/>
       </div>
-      <button id="sendButton" class="btn">Send</button>
+      <button id="sendButton" class="btn" ng-click="sendChatMessage()" >Send</button>
     </form>  
-</div>
+  </div>
+</div>  
