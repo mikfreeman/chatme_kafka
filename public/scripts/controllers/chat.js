@@ -8,7 +8,14 @@ angular.module('chatme.controllers')
       	$scope.messages = [];
 
         chatService.on('connected', function(message) {
-          console.log(message);
           $scope.messages.push(message);
+        });
+
+        chatService.on('message', function(message) {
+          $scope.messages.push(message);
+        });
+
+        chatService.on('roomJoined', function(room) {
+          $scope.messages.push({text : 'Welcome to : ' + room});
         });
   }]);

@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-md-3" ng-controller="HomeController">
+  <div class="col-md-3" ng-controller="RoomController">
     <ul id="roomsList" class="nav nav-pills nav-stacked">
       <li style="margin-bottom:10px">Rooms<button class="btn-mini pull-right"  href="#createRoomModal" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span></button></li>
-      <li ng-repeat="room in rooms"><a href="#">{{room.label}}</a></li>
+      <li ng-repeat="room in rooms"><a href="#">{{room}}</a></li>
     </ul>
   </div>
   <div class="col-md-9" ng-controller="ChatController">
