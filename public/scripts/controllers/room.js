@@ -7,14 +7,20 @@ angular.module('chatme.controllers')
 
         var currentRoom = 'Lobby';
 
-        chatService.emit('joinRoom','Lobby');
-
       	$scope.rooms = [
       		'Lobby'
       	];
 
+        $scope.isActive = function(room) {
+          return room == currentRoom;
+        };
+
+        chatService.emit('joinRoom','Lobby');
+
         chatService.on('roomJoined', function(room) {
           currentRoom = room;
         });
+
+
 
   }]);
