@@ -5,7 +5,8 @@ angular.module('chatme', [
   'chatme.services',
   'chatme.directives',
   'chatme.filters',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider

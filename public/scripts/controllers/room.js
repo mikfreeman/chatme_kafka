@@ -1,25 +1,46 @@
 'use strict';
 
 angular.module('chatme.controllers')
-  .controller('RoomController', 
-    ['$scope','chatService',
-      function($scope,chatService) {
+.controller('RoomController', 
+  ['$scope','$modal','chatService',
+  function($scope,$modal,chatService) {
 
-        var currentRoom = 'Lobby';
+    var currentRoom = 'Lobby';
 
-      	$scope.rooms = [
-      		'Lobby'
-      	];
+    $scope.rooms = [
+    'Lobby'
+    ];
 
-        $scope.isActive = function(room) {
-          return room == currentRoom;
-        };
+    $scope.isActive = function(room) {
+      return room == currentRoom;
+    };
 
-        chatService.emit('joinRoom','Lobby');
+    $scope.createRoomDialog = function() {
+      var modalInstance = $modal.open({
+        templateUrl: 'views/createRoomModal.html',
+        controller : 'ModalRoomController'
 
-        chatService.on('roomJoined', function(room) {
-          currentRoom = room;
-        });
+      });
+
+      modalInstance.result.then(function (room) {
+        //TODO should not need this here
+        currentRoom = room;
+        $scope.rooms.push(room);  
+        chatService.emit('joinRoom',room);
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
+    };
+
+    chatService.emit('joinRoom','Lobby');
+
+    chatService.on('roomJoined', function(room) {
+      currentRoom = room;
+    });
+
+    chatService.on('newRoom', function(room) {
+      $scope.rooms.push(room);  
+    });
 
 
 

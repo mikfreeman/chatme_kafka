@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 class="modal-title">Add Room</h4>
+</div>
+<div class="modal-body">
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="roomName" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-10">
+        <input ng-model="roomToCreate.roomName" type="text" class="form-control" id="roomName" placeholder="Room Name ..."/>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelCreateRoom()">Close</button>
+  <button id="createRoom" type="button" class="btn btn-primary" ng-click="createRoom()">Create</button>
+</div>
