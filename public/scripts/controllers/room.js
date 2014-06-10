@@ -15,6 +15,10 @@ angular.module('chatme.controllers')
       return room == currentRoom;
     };
 
+    $scope.joinRoom = function(room) {
+      chatService.emit('joinRoom',room);
+    };
+
     $scope.createRoomDialog = function() {
       var modalInstance = $modal.open({
         templateUrl: 'views/createRoomModal.html',
