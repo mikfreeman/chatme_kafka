@@ -14,7 +14,8 @@ angular.module('chatme.controllers')
 
      var message = {
       room : currentRoom,
-      text : $scope.chatMessage
+      text : $scope.chatMessage,
+      colour : 'alert-success'
     };
 
     chatService.emit('message', message);
@@ -24,15 +25,19 @@ angular.module('chatme.controllers')
 };
 
 chatService.on('connected', function(message) {
- $scope.messages.push(message);
+  message.colour = 'alert-info';
+  $scope.messages.push(message);
 });
 
 chatService.on('message', function(message) {
- $scope.messages.push(message);
+  message.colour = 'alert-info';
+  $scope.messages.push(message);
 });
 
 chatService.on('roomJoined', function(room) {
  currentRoom = room;
- $scope.messages.push({text : 'Welcome to : ' + room});
+ $scope.messages.push({text : 'Welcome to : ' + room,
+   colour : 'alert-info' 
+ });
 });
 }]);

@@ -7,7 +7,7 @@
   </div>
   <div class="col-md-9" ng-controller="ChatController">
     <div class="jumbotron message-area" style="font-size : 14px">
-      <div ng-repeat="message in messages" class='alert alert-info' style='padding : 5px;padding-left: 10px;margin-bottom : 10px'>{{message.text}}</div>
+      <div ng-repeat="message in messages" class='alert {{message.colour}}' style='padding : 5px;padding-left: 10px;margin-bottom : 10px'>{{message.text}}</div>
     </div>
     <form class="form-inline" role="form">
       <div class="form-group">
