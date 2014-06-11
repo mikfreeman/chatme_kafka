@@ -2,14 +2,21 @@
 
 angular.module('chatme.controllers')
 .controller('RoomController', 
-  ['$scope','$modal','chatService',
-  function($scope,$modal,chatService) {
+  ['$scope','$modal','$http','chatService',
+  function($scope,$modal,$http,chatService) {
 
     var currentRoom = 'Lobby';
 
-    $scope.rooms = [
-    'Lobby'
-    ];
+    var roomsRequest = $http({ method: 'GET',
+      url: '/rooms'
+    });
+
+    roomsRequest.success(function(data,status,headers,config){ 
+      $scope.rooms = data.rooms;
+    });
+    
+    roomsRequest.error(function(data,status,headers,config){ 
+    });
 
     $scope.isActive = function(room) {
       return room == currentRoom;
@@ -45,7 +52,5 @@ angular.module('chatme.controllers')
     chatService.on('newRoom', function(room) {
       $scope.rooms.push(room);  
     });
-
-
 
   }]);
