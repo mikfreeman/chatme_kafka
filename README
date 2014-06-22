@@ -1,7 +1,7 @@
-Chatme
+Chat With Node and AngularJs
 ============
 
-A NodeJs chat server that uses web sockets for a real time chat experience.
+A NodeJs chat server and AngularJs client that uses web sockets for a real time chat experience.
 
 Setup
 ============
