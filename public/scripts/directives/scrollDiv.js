@@ -11,7 +11,7 @@ angular.module('chatme.directives')
       );
     }
 
-    scope.$watchCollection('messages', function() {
+    scope.$watchCollection(attrs.toWatch, function() {
       scrollToBottom();
     });
   }
