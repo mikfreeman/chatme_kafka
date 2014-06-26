@@ -9,9 +9,9 @@
     <div scroll-div to-watch="messages" class="jumbotron message-area" style="font-size : 14px">
       <div ng-repeat="message in messages" class='alert {{message.colour}}' style='padding : 5px;padding-left: 10px;margin-bottom : 10px'>{{message.text}}</div>
     </div>
-    <form class="form-inline" role="form">
+    <form ng-submit="sendChatMessage()" class="form-inline" role="form">
       <div class="form-group">
-        <input ng-model="chatMessage" type="text" class="form-control" id="message" placeholder="Chat ..."/>
+        <input ng-model="chatMessage" autofocus type="text" class="form-control" id="message" placeholder="Chat ..."/>
       </div>
       <button id="sendButton" class="btn" ng-click="sendChatMessage()" >Send</button>
     </form>  
