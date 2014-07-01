@@ -34,6 +34,15 @@ chatService.on('message', function(message) {
   $scope.messages.push(message);
 });
 
+chatService.on('nicknameChanged', function(newNickName) {
+  var message = {
+    colour : 'alert-info',
+    text : "Succesfully changed nickname to : " + newNickName
+  }
+
+  $scope.messages.push(message);
+});
+
 chatService.on('roomJoined', function(room) {
  currentRoom = room;
  $scope.messages.push({text : 'Welcome to : ' + room,
