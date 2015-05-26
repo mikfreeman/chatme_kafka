@@ -2,7 +2,7 @@
 
 angular.module('chatme.services', [])
     .factory('chatService', ['$rootScope', function ($rootScope) {
-        var socket = io.connect();
+        var socket = io();
         return {
             on: function (eventName, callback) {
                 socket.on(eventName, function () {
