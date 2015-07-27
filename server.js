@@ -1,4 +1,6 @@
 var chat_server = require('./lib/chat_server');
+var kafka_consumer = require('./lib/kafka_consumer');
+var kafka_producer = require('./lib/kafka_producer');
 var http = require('http');
 var express = require('express');
 var path = require('path');
@@ -41,6 +43,8 @@ if ('development' == app.get('env')) {
 var server = http.createServer(app);
 server.listen(3000);
 chatServer = chat_server(server);
+kafkaConsumer = kafka_consumer(chatServer);
+kafkaProducer = kafka_producer(chatServer);
 
 //Example of event emitting
 chatServer.on('roomJoined', function (room) {

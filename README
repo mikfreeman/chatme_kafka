@@ -1,12 +1,24 @@
-Chat With Node and AngularJs
+Chat With Node, Kafka and AngularJs
 ============
 
-A NodeJs chat server and AngularJs client that uses web sockets for a real time chat experience.
+A NodeJs chat server that uses kafka as a distributed message log
+and a AngularJs client that uses web sockets for a real time chat experience.
 
 Setup
 ============
 
 Install NodeJs from http://nodejs.org/
+Install Kafka from http://kafka.apache.org
+
+Start Kafka (Quick Start)
+
+
+$KAFKA_HOME/bin/zookeeper-server-start.sh config/zookeeper.properties
+
+$KAFKA_HOME/bin/kafka-server-start.sh config/server.properties
+
+$KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic chatmessages
+
 cd chatme
 npm install
 node server.js
