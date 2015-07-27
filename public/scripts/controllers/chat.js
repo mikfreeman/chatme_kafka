@@ -14,32 +14,39 @@ angular.module('chatme.controllers')
 
                     var message = {
                         room: currentRoom,
-                        text: $scope.chatMessage,
-                        colour: 'alert-success'
+                        text: $scope.chatMessage
                     };
 
                     chatService.emit('message', message);
-                    $scope.messages.push(message);
                     $scope.chatMessage = '';
                 }
             };
 
             chatService.on('connected', function (message) {
-                message.colour = 'alert-info';
+                message.colour = 'alert-success';
+                var user = {
+                    nickName : message.nickName
+                };
+                $scope.user = user;
                 $scope.messages.push(message);
             });
 
             chatService.on('message', function (message) {
-                message.colour = 'alert-info';
+                if(message.nickName === $scope.user.nickName) {
+                    message.colour = 'alert-success';
+                } else {
+                    message.colour = 'alert-info';
+                }
+
                 $scope.messages.push(message);
             });
 
             chatService.on('nicknameChanged', function (newNickName) {
                 var message = {
-                    colour: 'alert-info',
+                    colour: 'alert-success',
                     text: "Succesfully changed nickname to : " + newNickName
                 }
-
+                $scope.user.nickName = newNickName;
                 $scope.messages.push(message);
             });
 
