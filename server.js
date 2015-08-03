@@ -4,6 +4,7 @@ var kafka_producer = require('./lib/kafka_producer');
 var http = require('http');
 var express = require('express');
 var path = require('path');
+var data_service = require('./lib/data_service');
 
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -33,7 +34,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/rooms', function (req, res) {
-    res.json({'rooms': chatServer.getRooms()});
+    data_service.findAllRooms(0,10).then(function(rooms) {
+        res.json({'rooms': rooms});
+    }).catch(function(err) {
+        console.log(err);
+    })
 });
 
 if ('development' == app.get('env')) {
@@ -48,5 +53,5 @@ kafkaProducer = kafka_producer(chatServer);
 
 //Example of event emitting
 chatServer.on('roomJoined', function (room) {
-   console.log(room + ' joined');
+   console.log(room.name + ' joined');
 });

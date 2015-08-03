@@ -53,7 +53,7 @@ angular.module('chatme.controllers')
             chatService.on('roomJoined', function (room) {
                 currentRoom = room;
                 $scope.messages.push({
-                    text: 'Welcome to : ' + room,
+                    text: 'Welcome to : ' + room.name,
                     colour: 'alert-info'
                 });
             });

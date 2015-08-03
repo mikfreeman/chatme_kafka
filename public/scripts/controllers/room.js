@@ -20,7 +20,7 @@ angular.module('chatme.controllers')
             });
 
             $scope.isActive = function (room) {
-                return room == currentRoom;
+                return room.name == currentRoom.name;
             };
 
             $scope.joinRoom = function (room) {
@@ -34,17 +34,20 @@ angular.module('chatme.controllers')
 
                 });
 
-                modalInstance.result.then(function (room) {
+                modalInstance.result.then(function (roomName) {
                     //TODO should not need this here
+                    var room = {
+                        name : roomName
+                    };
                     currentRoom = room;
                     $scope.rooms.push(room);
-                    chatService.emit('joinRoom', room);
+                    chatService.emit('createRoom', room);
                 }, function () {
-                    console.log('Modal dismissed at: ' + new Date());
+
                 });
             };
 
-            chatService.emit('joinRoom', 'Lobby');
+            chatService.emit('joinRoom', {name : 'Lobby'});
 
             chatService.on('roomJoined', function (room) {
                 currentRoom = room;
