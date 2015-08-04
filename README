@@ -9,9 +9,13 @@ Setup
 
 Install NodeJs from http://nodejs.org/
 Install Kafka from http://kafka.apache.org
+Install Mongo from https://www.mongodb.com
 
-Start Kafka (Quick Start)
+# Mongo
+Create a 'chatme' database
+Start mongo
 
+#Start Kafka (Quick Start)
 
 $KAFKA_HOME/bin/zookeeper-server-start.sh config/zookeeper.properties
 
@@ -19,10 +23,12 @@ $KAFKA_HOME/bin/kafka-server-start.sh config/server.properties
 
 $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic chatmessages
 
+
 cd chatme
 npm install
-node server.js
-open two browser windows at localhost:3000
+node app.js --port 3000 --groupid chatgroup1
+node app.js --port 3001 --groupid chatgroup2
+open two browser windows one at localhost:3000 and one at localhost:3001
 Start chatting.
 
 

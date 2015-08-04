@@ -4,6 +4,7 @@ var kafka_producer = require('./lib/kafka_producer');
 var http = require('http');
 var express = require('express');
 var path = require('path');
+var argv = require('minimist')(process.argv.slice(2));
 var data_service = require('./lib/data_service');
 
 var favicon = require('serve-favicon');
@@ -45,10 +46,15 @@ if ('development' == app.get('env')) {
     app.use(errorHandler());
 }
 
+console.log('Using arguments ' + JSON.stringify(argv));
 var server = http.createServer(app);
-server.listen(3000);
+var port = (argv.port) ? argv.port : 3000;
+
+server.listen(port);
 chatServer = chat_server(server);
-kafkaConsumer = kafka_consumer(chatServer);
+
+var groupId = (argv.groupid) ? argv.groupid : 'chat-server-group';
+kafkaConsumer = kafka_consumer(chatServer, groupId);
 kafkaProducer = kafka_producer(chatServer);
 
 //Example of event emitting
