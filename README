@@ -13,6 +13,16 @@ Install Mongo from https://www.mongodb.com
 
 # Mongo
 Create a 'chatme' database
+
+Create a counters collection
+
+db.counters.insert(
+   {
+      _id: "tempUserId",
+      seq: 0
+   }
+)
+
 Start mongo
 
 #Start Kafka (Quick Start)
