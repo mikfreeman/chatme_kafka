@@ -23,6 +23,12 @@ db.counters.insert(
    }
 )
 
+Create a nicknames collection
+
+db.createCollection("nicknames");
+db.nicknames.createIndex( { "createdAt": 1 }, { expireAfterSeconds: 86400 } );
+
+
 Start mongo
 
 #Start Kafka (Quick Start)
