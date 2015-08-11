@@ -61,3 +61,22 @@ kafkaProducer = kafka_producer(chatServer);
 chatServer.on('roomJoined', function (room) {
    console.log(room.name + ' joined');
 });
+
+if (process.platform === "win32") {
+    var rl = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    rl.on("SIGINT", function () {
+        process.emit("SIGINT");
+    });
+}
+
+process.on("SIGINT", function () {
+    console.log('Shutting down');
+    kafkaConsumer.close();
+    kafkaProducer.close();
+    data_service.close();
+    process.exit();
+});
