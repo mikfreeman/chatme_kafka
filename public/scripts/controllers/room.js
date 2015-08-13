@@ -47,8 +47,6 @@ angular.module('chatme.controllers')
                 });
             };
 
-            chatService.emit('joinRoom', {name : 'Lobby'});
-
             chatService.on('roomJoined', function (room) {
                 currentRoom = room;
             });

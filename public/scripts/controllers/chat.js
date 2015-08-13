@@ -28,7 +28,7 @@ angular.module('chatme.controllers')
                     nickName : message.nickName
                 };
                 $scope.user = user;
-                $scope.messages.push(message);
+                chatService.emit('joinRoom', {name : 'Lobby'});
             });
 
             chatService.on('message', function (message) {
@@ -44,7 +44,7 @@ angular.module('chatme.controllers')
             chatService.on('nicknameChanged', function (newNickName) {
                 var message = {
                     colour: 'alert-success',
-                    text: "Succesfully changed nickname to : " + newNickName
+                    text: "Successfully changed nickname to : " + newNickName
                 }
                 $scope.user.nickName = newNickName;
                 $scope.messages.push(message);

@@ -6,10 +6,13 @@ angular.module('chatme.controllers')
         function ($scope, chatService) {
 
             $scope.changeNickname = function () {
-                console.log("here");
                 if ($scope.nickName) {
                     chatService.emit('changeNickname', $scope.nickName);
                 }
             };
+
+            chatService.on('connected', function (message) {
+                $scope.nickName = message.nickName;
+            });
 
         }]);
