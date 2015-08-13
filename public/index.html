@@ -1,69 +1,120 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ChatMe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <title>ChatMe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!-- Le styles -->
-  <link href="styles/bootstrap.min.css" rel="stylesheet">
-  <style type="text/css">
-  
-  .message-area{
-    height: 400px;
-    overflow:scroll;
-    },
+    <!-- Le styles -->
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
 
-    .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+        .message-area {
+            height: 400px;
+            overflow: scroll;
+        }
+
+        ,
+
+        .nav, .pagination, .carousel, .panel-title a {
+            cursor: pointer;
+        }
+
+        .flash {
+
+            -moz-animation: flash 1s ease-out;
+            -moz-animation-iteration-count: 1;
+
+            -webkit-animation: flash 1s ease-out;
+            -webkit-animation-iteration-count: 1;
+
+            -ms-animation: flash 1s ease-out;
+            -ms-animation-iteration-count: 1;
+
+        }
+
+        @-webkit-keyframes flash {
+            0% {
+                background-color: none;
+            }
+            50% {
+                background-color: #fbf8b2;
+            }
+            100% {
+                background-color: none;
+            }
+        }
+
+        @-moz-keyframes flash {
+            0% {
+                background-color: none;
+            }
+            50% {
+                background-color: #fbf8b2;
+            }
+            100% {
+                background-color: none;
+            }
+        }
+
+        @-ms-keyframes flash {
+            0% {
+                background-color: none;
+            }
+            50% {
+                background-color: #fbf8b2;
+            }
+            100% {
+                background-color: none;
+            }
+        }
 
     </style>
-  </head>
+</head>
 
-  <body ng-app="chatme">
+<body ng-app="chatme">
 
-    <nav class="navbar navbar-inverse navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-default" role="navigation">
 
-      <div class="navbar-header">
+    <div class="navbar-header">
         <a class="navbar-brand" href="#">NodeJs Chatme Client</a>
-      </div>
+    </div>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <form class="navbar-form navbar-right" role="search" ng-controller="NickNameController">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nickname" ng-model="nickName" >
-          </div>
-          <button class="btn btn-default" ng-click="changeNickname()">Change</button>
+            <div class="form-group">
+                <input type="text" class="form-control" ng-class="flash" placeholder="Nickname" ng-model="nickName">
+            </div>
+            <button class="btn btn-default"  ng-click="changeNickname()">Change</button>
         </form>
 
-      </div>
-    </nav>
+    </div>
+</nav>
 
 
-
-    <div class="container">
-      <div ng-view=""></div>
-      <hr>
-      <footer>
+<div class="container">
+    <div ng-view=""></div>
+    <hr>
+    <footer>
         <p>&copy; Nobody :)</p>
-      </footer>
-    </div> 
+    </footer>
+</div>
 
-    <script src='/socket.io/socket.io.js'></script>
-    <script src="scripts/vendor/jquery-1.11.1.min.js"></script>
-    <script src="scripts/vendor/angular.min.js"></script>
-    <script src="scripts/vendor/angular-route.min.js"></script>
-    <script src="scripts/vendor/ui-bootstrap-tpls-0.11.0.min.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/services/chat.js"></script>
-    <script src="scripts/controllers/room.js"></script>
-    <script src="scripts/controllers/modalRoom.js"></script>
-    <script src="scripts/controllers/chat.js"></script>
-    <script src="scripts/controllers/nickName.js"></script>
-    <script src="scripts/directives/scrollDiv.js"></script>
+<script src='/socket.io/socket.io.js'></script>
+<script src="scripts/vendor/jquery-1.11.1.min.js"></script>
+<script src="scripts/vendor/angular.min.js"></script>
+<script src="scripts/vendor/angular-route.min.js"></script>
+<script src="scripts/vendor/ui-bootstrap-tpls-0.11.0.min.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/services/chat.js"></script>
+<script src="scripts/controllers/room.js"></script>
+<script src="scripts/controllers/modalRoom.js"></script>
+<script src="scripts/controllers/chat.js"></script>
+<script src="scripts/controllers/nickName.js"></script>
+<script src="scripts/directives/scrollDiv.js"></script>
 
-  </body>
-  </html>
+</body>
+</html>

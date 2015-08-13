@@ -13,6 +13,7 @@ angular.module('chatme.controllers')
 
             chatService.on('connected', function (message) {
                 $scope.nickName = message.nickName;
+                $scope.flash = 'flash';
             });
 
         }]);
