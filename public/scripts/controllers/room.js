@@ -35,7 +35,6 @@ angular.module('chatme.controllers')
                 });
 
                 modalInstance.result.then(function (roomName) {
-                    //TODO should not need this here
                     var room = {
                         name : roomName
                     };
