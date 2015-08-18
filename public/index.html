@@ -85,10 +85,17 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <form class="navbar-form navbar-right" role="search" ng-controller="NickNameController">
-            <div class="form-group">
-                <input type="text" class="form-control" ng-class="flash" placeholder="Nickname" ng-model="nickName">
+            <div class="input-group">
+                <span class="input-group-addon" id="nickname-icon">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </span>
+                <input type="text" class="form-control" ng-class="flash" placeholder="Nickname" ng-model="nickName"
+                       aria-describedby="nickname-icon">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="changeNickname()">Change</button>
+                </span>
             </div>
-            <button class="btn btn-default"  ng-click="changeNickname()">Change</button>
+
         </form>
 
     </div>
