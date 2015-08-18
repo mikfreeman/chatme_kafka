@@ -1,19 +1,30 @@
 <div class="row">
-  <div class="col-md-3" ng-controller="RoomController">
-    <ul id="roomsList" class="nav nav-pills nav-stacked">
-      <li style="margin-bottom:10px">Rooms<button class="btn-mini pull-right"  ng-click="createRoomDialog()" href="#createRoomModal" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span></button></li>
-      <li ng-repeat="room in rooms" ng-class="{active:isActive(room)}"><a ng-click="joinRoom(room)">{{room.name}}</a></li>
-    </ul>
-  </div>
-  <div class="col-md-9" ng-controller="ChatController">
-    <div scroll-div to-watch="messages" class="jumbotron message-area" style="font-size : 14px">
-      <div ng-repeat="message in messages" class='alert {{message.colour}}' style='padding : 5px;padding-left: 10px;margin-bottom : 10px'>{{message.text}}</div>
+    <div class="col-md-3" ng-controller="RoomController">
+        <ul id="roomsList" class="nav nav-pills nav-stacked">
+            <li style="margin-bottom:10px">Rooms
+                <button class="btn-mini pull-right" ng-click="createRoomDialog()" href="#createRoomModal"
+                        data-toggle="modal"><span class="glyphicon glyphicon-plus"></span></button>
+            </li>
+            <li ng-repeat="room in rooms" ng-class="{active:isActive(room)}"><a
+                    ng-click="joinRoom(room)">{{room.name}}</a></li>
+        </ul>
     </div>
-    <form ng-submit="sendChatMessage()" class="form-inline" role="form">
-      <div class="form-group">
-        <input ng-model="chatMessage" autofocus type="text" class="form-control" id="message" placeholder="Chat ..."/>
-      </div>
-      <button id="sendButton" class="btn" ng-click="sendChatMessage()" >Send</button>
-    </form>  
-  </div>
+    <div class="col-md-9" ng-controller="ChatController">
+        <div scroll-div to-watch="messages" class="jumbotron message-area" style="font-size : 14px">
+            <div ng-repeat="message in messages" class='alert {{message.colour}}'
+                 style='padding : 5px;padding-left: 10px;margin-bottom : 10px'>{{message.text}}
+            </div>
+        </div>
+        <form ng-submit="sendChatMessage()" role="form">
+            <div class="input-group">
+                <span class="input-group-addon" id="send-icon">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                </span>
+                <input ng-model="chatMessage" autofocus type="text" id="message" class="form-control" placeholder="Chat..." aria-describedby="send-icon" autocomplete="off">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="sendChatMessage()">Send</button>
+                 </span>
+            </div>
+        </form>
+    </div>
 </div>  
