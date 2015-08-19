@@ -42,12 +42,7 @@ angular.module('chatme.controllers')
             });
 
             chatService.on('nicknameChanged', function (newNickName) {
-                var message = {
-                    colour: 'alert-success',
-                    text: "Successfully changed nickname to : " + newNickName
-                }
                 $scope.user.nickName = newNickName;
-                $scope.messages.push(message);
             });
 
             chatService.on('roomJoined', function (room) {
