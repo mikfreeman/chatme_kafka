@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-10" ng-controller="ChatController">
         <div scroll-div to-watch="messages" class="jumbotron message-area" style="font-size : 14px">
-            <div ng-repeat="message in messages" class='alert {{message.colour}}'
+            <div ng-repeat="message in messages" class='alert message-text {{message.colour}}'
                  style='padding : 5px;padding-left: 10px;margin-bottom : 10px'>{{message.text}}
             </div>
         </div>
