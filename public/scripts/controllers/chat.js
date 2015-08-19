@@ -24,10 +24,9 @@ angular.module('chatme.controllers')
 
             chatService.on('connected', function (message) {
                 message.colour = 'alert-success';
-                var user = {
+                $scope.user = {
                     nickName : message.nickName
                 };
-                $scope.user = user;
                 chatService.emit('joinRoom', {name : 'Lobby'});
             });
 

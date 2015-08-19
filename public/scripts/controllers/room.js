@@ -12,7 +12,7 @@ angular.module('chatme.controllers')
                 url: '/rooms'
             });
 
-            roomsRequest.success(function (data, status, headers, config) {
+            roomsRequest.success(function (data) {
                 $scope.rooms = data.rooms;
             });
 

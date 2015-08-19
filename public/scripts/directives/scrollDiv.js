@@ -20,4 +20,4 @@ angular.module('chatme.directives')
             restrict: 'A',
             link: link
         }
-    }])
+    }]);
