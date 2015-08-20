@@ -1,0 +1,61 @@
+.message-area {
+    height: 400px;
+    overflow: scroll;
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+.flash {
+
+    -moz-animation: flash 1s ease-out;
+    -moz-animation-iteration-count: 1;
+
+    -webkit-animation: flash 1s ease-out;
+    -webkit-animation-iteration-count: 1;
+
+    -ms-animation: flash 1s ease-out;
+    -ms-animation-iteration-count: 1;
+
+}
+
+@-webkit-keyframes flash {
+    0% {
+        background-color: none;
+    }
+    50% {
+        background-color: #DFF0D8;
+    }
+    100% {
+        background-color: none;
+    }
+}
+
+@-moz-keyframes flash {
+    0% {
+        background-color: none;
+    }
+    50% {
+        background-color: #DFF0D8;
+    }
+    100% {
+        background-color: none;
+    }
+}
+
+@-ms-keyframes flash {
+    0% {
+        background-color: none;
+    }
+    50% {
+        background-color: #DFF0D8;
+    }
+    100% {
+        background-color: none;
+    }
+}
+
+.message-text {
+    word-wrap: break-word;
+}
