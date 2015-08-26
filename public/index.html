@@ -29,7 +29,7 @@
                     <span class="input-group-addon" id="nickname-icon">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     </span>
-                    <input type="text" class="form-control" ng-class="flash" placeholder="Nickname" name="nickName" ng-model="nickName"
+                    <input type="text" class="form-control" flash-on-change placeholder="Nickname" name="nickName" ng-model="nickName"
                            aria-describedby="nickname-icon" ng-maxlength="20">
                     <span class="input-group-btn">
                         <button class="btn btn-default" ng-click="changeNickname()">Change</button>
@@ -55,6 +55,7 @@
 <script src="scripts/vendor/jquery-1.11.1.min.js"></script>
 <script src="scripts/vendor/angular.min.js"></script>
 <script src="scripts/vendor/angular-route.min.js"></script>
+<script src="scripts/vendor/angular-animate.min.js"></script>
 <script src="scripts/vendor/ui-bootstrap-tpls-0.11.0.min.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/services/chat.js"></script>
@@ -63,6 +64,7 @@
 <script src="scripts/controllers/chat.js"></script>
 <script src="scripts/controllers/nickName.js"></script>
 <script src="scripts/directives/scrollDiv.js"></script>
+<script src="scripts/directives/flash.js"></script>
 
 </body>
 </html>
