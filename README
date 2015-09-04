@@ -28,6 +28,10 @@ Create a nicknames collection
 db.createCollection("nicknames");
 db.nicknames.createIndex( { "createdAt": 1 }, { expireAfterSeconds: 86400 } );
 
+Create a rooms collection
+db.createCollection("rooms");
+db.rooms.insert({"name" : "Lobby"});
+
 
 Start mongo
 
