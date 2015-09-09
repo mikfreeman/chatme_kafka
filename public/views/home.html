@@ -1,5 +1,5 @@
-<div class="row">
-    <div class="col-md-2" ng-controller="RoomController">
+<div class="row main-content">
+    <div class="col-md-2 block-film" ng-controller="RoomController">
         <ul id="roomsList" class="nav nav-pills nav-stacked">
             <li style="margin-bottom:10px">Rooms
                 <button class="btn-mini pull-right" ng-click="createRoomDialog()" href="#createRoomModal"
@@ -9,8 +9,8 @@
                     ng-click="joinRoom(room)">{{room.name}}</a></li>
         </ul>
     </div>
-    <div class="col-md-10" ng-controller="ChatController">
-        <div scroll-div to-watch="messages" class="jumbotron message-area" style="font-size : 14px">
+    <div class="col-md-10 block-film" ng-controller="ChatController">
+        <div scroll-div to-watch="messages" class="jumbotron message-area block-film" style="font-size : 14px">
             <div ng-repeat="message in messages" class='alert message-text {{message.colour}}'
                  style='padding : 5px;padding-left: 10px;margin-bottom : 10px'>{{message.text}}
             </div>

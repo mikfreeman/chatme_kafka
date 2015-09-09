@@ -14,41 +14,48 @@
 </head>
 
 <body ng-app="chatme">
+<div class="container-fluid">
+    <div class="nav-content">
+        <nav class="navbar navbar-inverse navbar-default" role="navigation">
 
-<nav class="navbar navbar-inverse navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">NodeJs Chatme Client</a>
+            </div>
 
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">NodeJs Chatme Client</a>
-    </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-        <form class="navbar-form navbar-right" role="search" ng-controller="NickNameController" name="nickNameForm">
-            <div class="form-group" ng-class="{'has-error' : nickNameForm.nickName.$invalid }">
-                <div class="input-group">
+                <form class="navbar-form navbar-right" role="search" ng-controller="NickNameController"
+                      name="nickNameForm">
+                    <div class="form-group" ng-class="{'has-error' : nickNameForm.nickName.$invalid }">
+                        <div class="input-group">
                     <span class="input-group-addon" id="nickname-icon">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     </span>
-                    <input type="text" class="form-control" flash-on-change placeholder="Nickname" name="nickName" ng-model="nickName"
-                           aria-describedby="nickname-icon" ng-maxlength="20">
+                            <input type="text" class="form-control" flash-on-change placeholder="Nickname"
+                                   name="nickName" ng-model="nickName"
+                                   aria-describedby="nickname-icon" ng-maxlength="20">
                     <span class="input-group-btn">
                         <button class="btn btn-default" ng-click="changeNickname()">Change</button>
                     </span>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
-        </form>
+                </form>
+
+            </div>
+        </nav>
+    </div>
+
+
+    <div ng-view="" class="body-film"></div>
+    <div class="footer-content">
+        <hr>
+        <footer>
+            <p>&copy; Nobody :)</p>
+        </footer>
 
     </div>
-</nav>
 
-
-<div class="container">
-    <div ng-view=""></div>
-    <hr>
-    <footer>
-        <p>&copy; Nobody :)</p>
-    </footer>
 </div>
 
 <script src='/socket.io/socket.io.js'></script>
