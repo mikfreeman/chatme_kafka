@@ -7,19 +7,14 @@ body,html {
     overflow-y: hidden; /* don't show content that exceeds my height */
 }
 
-.nav-content {
-    min-height: 10%;
-    height: 10%;
-}
-
 .main-content {
     min-height: 100%;
     height: 100%;
 }
 
 .body-film {
-    height: 80%;
-    min-height: 80%;
+    height: 75%;
+    min-height: 75%;
     overflow-y: auto;
 
 }
@@ -30,9 +25,14 @@ body,html {
     overflow-y: hidden; /* don't show content that exceeds my height */
 }
 
+.message-div {
+    min-height: 100%;
+    height: 100%;
+}
 
 .message-area {
-
+    min-height: 80%;
+    height: 80%;
     overflow: scroll;
 }
 
