@@ -48,7 +48,7 @@ angular.module('chatme.controllers')
                 currentRoom = room;
                 $scope.messages = [];
                 $scope.messages.push({
-                    text: 'Welcome to : ' + room.name,
+                    text: 'Welcome to : [' + room.name + ']',
                     colour: 'alert-warning'
                 });
             });
