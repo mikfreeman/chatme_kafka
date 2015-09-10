@@ -4,25 +4,25 @@ body,html {
 
 .container-fluid {
     height: 100%;
-    overflow-y: hidden; /* don't show content that exceeds my height */
+    overflow-y: hidden;
 }
 
-.main-content {
+.row-wrapper {
     min-height: 100%;
     height: 100%;
 }
 
-.body-film {
-    height: 75%;
-    min-height: 75%;
+.column-wrapper {
+    min-height: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.main-content-wrapper {
+    height: 78%;
+    min-height: 78%;
     overflow-y: auto;
 
-}
-
-.block-film {
-    min-height: 100%;
-    height: 100%;
-    overflow-y: hidden; /* don't show content that exceeds my height */
 }
 
 .message-div {
