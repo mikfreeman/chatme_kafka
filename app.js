@@ -35,9 +35,17 @@ app.get('/', function (req, res) {
 });
 
 app.get('/rooms', function (req, res) {
-    data_service.findAllRooms(0,10).then(function(rooms) {
-        res.json({'rooms': rooms});
-    }).catch(function(err) {
+    data_service.findAllRooms(0, 10).then(function (rooms) {
+        data_service.totalRooms().then(function (total) {
+            res.json({
+                'rooms': rooms,
+                'total': total
+            });
+        }).catch(function (err) {
+            console.log(err);
+        })
+
+    }).catch(function (err) {
         console.log(err);
     })
 });
