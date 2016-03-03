@@ -33,7 +33,8 @@ db.createCollection("rooms");
 db.rooms.insert({"name" : "Lobby"});
 
 
-Start mongo
+#Start mongo
+mongod --config /usr/local/etc/mongod.conf
 
 #Start Kafka (Quick Start)
 
